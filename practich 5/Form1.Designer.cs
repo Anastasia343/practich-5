@@ -41,7 +41,7 @@ namespace practich_5
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(153, 134);
+            this.button1.Location = new System.Drawing.Point(12, 190);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -54,22 +54,22 @@ namespace practich_5
             this.textBox1.Location = new System.Drawing.Point(12, 25);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(397, 26);
+            this.textBox1.Size = new System.Drawing.Size(304, 26);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 81);
+            this.textBox2.Location = new System.Drawing.Point(12, 111);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(397, 26);
+            this.textBox2.Size = new System.Drawing.Size(304, 26);
             this.textBox2.TabIndex = 2;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 65);
+            this.label1.Location = new System.Drawing.Point(9, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 3;
@@ -77,7 +77,7 @@ namespace practich_5
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(153, 186);
+            this.button2.Location = new System.Drawing.Point(93, 190);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -88,10 +88,11 @@ namespace practich_5
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(513, 12);
+            this.listBox1.Location = new System.Drawing.Point(322, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(492, 199);
+            this.listBox1.Size = new System.Drawing.Size(471, 199);
             this.listBox1.TabIndex = 5;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -104,9 +105,9 @@ namespace practich_5
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(423, 55);
+            this.button3.Location = new System.Drawing.Point(108, 70);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(105, 23);
             this.button3.TabIndex = 7;
             this.button3.Text = "инициализация";
             this.button3.UseVisualStyleBackColor = true;
@@ -116,7 +117,7 @@ namespace practich_5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 225);
+            this.ClientSize = new System.Drawing.Size(806, 225);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBox1);
