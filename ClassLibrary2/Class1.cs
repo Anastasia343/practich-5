@@ -6,32 +6,45 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary2
 {
-    public delegate void AccountHandler(string message);
+    public delegate void AccountHandler(Class1 sender, AccountEventArgs e);
     public class Class1
     {
-        public int sum;
-        // Создаем переменную делегата
-        AccountHandler taken;
-        public Class1(int sum) => this.sum = sum;
+        public event AccountHandler Notify;
+
+        public int Sum { get; private set; }
+
+        public Class1 (int sum) => Sum = sum;
         public Class1() { }
-        // Регистрируем делегат
-        public void RegisterHandler(AccountHandler del)
+
+        public void Put(int sum)
         {
-            taken = del;
+            Sum += sum;
+            Notify?.Invoke(this, new AccountEventArgs($"На счет поступило {sum}", sum));
         }
-        public void Add(int sum) => this.sum += sum;
         public void Take(int sum)
         {
-            if (this.sum >= sum)
+            if (Sum >= sum)
             {
-                this.sum -= sum;
-                // вызываем делегат, передавая ему сообщение
-                taken?.Invoke($"Со счета списано {sum} у.е.");
+                Sum -= sum;
+                Notify?.Invoke(this, new AccountEventArgs($"Сумма {sum} снята со счета", sum));
             }
             else
             {
-                taken?.Invoke($"Недостаточно средств. Баланс: {this.sum} у.е.");
+                Notify?.Invoke(this, new AccountEventArgs("Недостаточно денег на счете", sum));
             }
+        }
+    }
+
+    public class AccountEventArgs
+    {
+        // Сообщение
+        public string Message { get; }
+        // Сумма, на которую изменился счет
+        public int Sum { get; }
+        public AccountEventArgs(string message, int sum)
+        {
+            Message = message;
+            Sum = sum;
         }
     }
 }

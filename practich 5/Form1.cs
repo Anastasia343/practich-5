@@ -26,27 +26,31 @@ namespace practich_5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            l.sum -= Convert.ToInt32(textBox2.Text);
-            listBox1.Items.Add($"Снята сумма: {textBox2.Text}\nТекущий баланс: {l.sum}");
-            textBox2.Text = "";
+           
 
+            bn.Notify += DisplayMessage;
+
+            bn.Take(Convert.ToInt32(textBox2.Text));
         }
+        Class1 bn = new Class1(0);
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Class1 ex = new Class1(0);
-            listBox1.Items.Add($"Пользователь: {textBox1.Text}\nТекущий баланс : {l.sum}");
+            listBox1.Items.Add($"Пользователь: {textBox1.Text}\nТекущий баланс : {bn.Sum}");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
-            l.sum += Convert.ToInt32(textBox2.Text);
-            listBox1.Items.Add($"Внесена сумма: {textBox2.Text}\nТекущий баланс: {l.sum}");
-            textBox2.Text = "";
-        }
 
+            bn.Notify += DisplayMessage;
+            bn.Put(Convert.ToInt32(textBox2.Text));
+        }
+        void DisplayMessage(Class1 sender, AccountEventArgs e)
+        {
+            
+           listBox1.Items.Add(e.Message);
+           listBox1.Items.Add($"Текущая сумма на счете: {sender.Sum}");
+        }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
